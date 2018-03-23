@@ -2,7 +2,9 @@
   <p>Name:<input type="text" name="figure[name]" id="figure_name"></p>
   <h3>Landmarks</h3>
   <%Landmark.all.each do |landmark|%>
+
   <p><%=landmark.name%><input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>"></p>
+
   <%end%>
   <h3>Titles</h3>
   <%Title.all.each do |title|%>
