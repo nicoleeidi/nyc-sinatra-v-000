@@ -20,8 +20,8 @@ post '/landmarks' do
 end
 post '/landmarks/:id' do
   @landmark= Landmark.find(params[:id])
-  @landmark.name= params["Landmark Name"]
-  @landmark.year_completed= params["Landmark Date"]
+  @landmark.name= params["landmark"]["name"]
+  @landmark.year_completed= params["landmark"]["year_completed"]
   binding.pry
   redirect "/landmarks/#{@landmark.id}"
 end
