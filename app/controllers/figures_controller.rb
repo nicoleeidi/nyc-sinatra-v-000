@@ -28,7 +28,7 @@ end
     erb :'figures/edit'
   end
   post '/figures/:id' do
-    binding.pry
+  
     @figure= Figure.find(params[:id])
     @figure.update(params[:figure])
     if !params["title"]["name"].empty?
