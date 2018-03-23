@@ -15,13 +15,16 @@ get '/landmarks/:id/edit' do
   erb :'landmarks/edit'
 end
 post '/landmarks' do
-  @landmark= Landmark.create(name: params["Landmark Name"], year_completed: params["Landmark Date"])
-  redirect "/landmarks/#{@landmark.id}"
+  @landmark= Landmark.create(name: params["landmark"]["name"], year_completed: params["landmark"]["year_completed"])
+  redirect "/landmarks"
 end
 post '/landmarks/:id' do
   @landmark= Landmark.find(params[:id])
-  @landmark.name= params["Landmark Name"]
-  @landmark.year_completed= params["Landmark Date"]
+  @landmark.name= params["landmark"]["name"]
+  @landmark.year_completed= params["landmark"]["year_completed"]
+  @landmark.save
+
+
   redirect "/landmarks/#{@landmark.id}"
 end
 end
